@@ -77,27 +77,61 @@ if (contactForm) {
                 formMessage.style.display = 'none';
             }, 5000);
         }, 1000);
+    });
+}
+
+// Hero form handling
+const heroForm = document.getElementById('heroForm');
+if (heroForm) {
+    heroForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formMessage = document.getElementById('heroFormMessage');
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission (replace with actual backend integration)
+        setTimeout(() => {
+            formMessage.className = 'form-message success';
+            formMessage.textContent = '✓ Success! We\'ll contact you within 2 hours.';
+            heroForm.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        }, 1000);
         
         // For actual implementation, use fetch or XMLHttpRequest:
         /*
         fetch('your-backend-endpoint.php', {
             method: 'POST',
-            body: formData
+            body: new FormData(this)
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
                 formMessage.className = 'form-message success';
                 formMessage.textContent = 'Thank you! We\'ll contact you soon.';
-                contactForm.reset();
+                heroForm.reset();
             } else {
                 formMessage.className = 'form-message error';
                 formMessage.textContent = 'Something went wrong. Please try again.';
             }
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
         })
         .catch(error => {
             formMessage.className = 'form-message error';
             formMessage.textContent = 'Network error. Please try again.';
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
         });
         */
     });
