@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Premier Plumbing Solutions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🔧</span>
+                    <span class="logo-text">Premier Plumbing</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="tel:+15551234567" class="btn-call">Call Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Get In Touch</h1>
+            <p class="fade-in-delay">We're here to help 24/7. Reach out anytime!</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p>Have a plumbing emergency or need to schedule service? We're just a phone call away.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">📞</div>
+                            <div class="method-details">
+                                <h3>Phone</h3>
+                                <a href="tel:+15551234567">(555) 123-4567</a>
+                                <p>24/7 Emergency Service</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">✉️</div>
+                            <div class="method-details">
+                                <h3>Email</h3>
+                                <a href="mailto:info@premierplumbing.com">info@premierplumbing.com</a>
+                                <p>We respond within 2 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">📍</div>
+                            <div class="method-details">
+                                <h3>Address</h3>
+                                <p>123 Main Street<br>Your City, ST 12345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">🕐</div>
+                            <div class="method-details">
+                                <h3>Business Hours</h3>
+                                <p>Mon-Fri: 7:00 AM - 7:00 PM<br>
+                                Sat: 8:00 AM - 5:00 PM<br>
+                                Sun: Emergency Service Only</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="emergency-notice">
+                        <h3>🚨 Have an Emergency?</h3>
+                        <p>Don't wait! Call us immediately for 24/7 emergency plumbing service. We'll have a technician to your location within 60 minutes.</p>
+                        <a href="tel:+15551234567" class="btn btn-primary">Call Emergency Line</a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h2>Request Service Online</h2>
+                    <p>Fill out the form below and we'll get back to you within 2 hours during business hours.</p>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Service Address</label>
+                            <input type="text" id="address" name="address">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceType">Type of Service Needed *</label>
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="">Select a service...</option>
+                                <option value="emergency">Emergency Repair</option>
+                                <option value="drain">Drain Cleaning</option>
+                                <option value="water-heater">Water Heater Service</option>
+                                <option value="leak">Leak Detection</option>
+                                <option value="fixture">Fixture Installation/Repair</option>
+                                <option value="pipe">Pipe Repair/Repiping</option>
+                                <option value="other">Other Service</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="urgency">Urgency Level *</label>
+                            <select id="urgency" name="urgency" required>
+                                <option value="">Select urgency...</option>
+                                <option value="emergency">Emergency - Need help ASAP</option>
+                                <option value="urgent">Urgent - Within 24 hours</option>
+                                <option value="soon">Soon - Within a week</option>
+                                <option value="flexible">Flexible - Anytime</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Describe Your Plumbing Issue *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Please provide details about your plumbing needs..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="consent" required>
+                                <span>I agree to receive communications from Premier Plumbing Solutions regarding my service request.</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">Submit Request</button>
+                        
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-area-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Service Area</h2>
+                <p>Proudly serving the greater metropolitan area and surrounding communities</p>
+            </div>
+            <div class="service-area-grid">
+                <div class="area-item">Your City</div>
+                <div class="area-item">Neighboring Town</div>
+                <div class="area-item">Westside Community</div>
+                <div class="area-item">East Valley</div>
+                <div class="area-item">North Heights</div>
+                <div class="area-item">South District</div>
+                <div class="area-item">Lakeside Area</div>
+                <div class="area-item">Mountain View</div>
+            </div>
+            <p class="area-note">Don't see your location? Give us a call—we may still be able to help!</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Premier Plumbing Solutions</h4>
+                    <p>Your trusted local plumbing experts, serving the community with integrity and excellence since 2005.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Emergency Repairs</a></li>
+                        <li><a href="services.html">Drain Cleaning</a></li>
+                        <li><a href="services.html">Water Heaters</a></li>
+                        <li><a href="services.html">Leak Detection</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><a href="tel:+15551234567">📞 (555) 123-4567</a></li>
+                        <li><a href="mailto:info@premierplumbing.com">✉️ info@premierplumbing.com</a></li>
+                        <li>📍 123 Main Street, Your City, ST 12345</li>
+                        <li>🕐 24/7 Emergency Service</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premier Plumbing Solutions. All rights reserved. | Licensed, Bonded & Insured</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
