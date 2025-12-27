@@ -25,15 +25,66 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero-with-form">
         <div class="hero-overlay"></div>
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title fade-in">Expert Plumbing Solutions for Your Home & Business</h1>
-                <p class="hero-subtitle fade-in-delay">24/7 Emergency Service • Licensed & Insured • 100% Satisfaction Guaranteed</p>
-                <div class="hero-buttons fade-in-delay-2">
-                    <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
-                    <a href="services.html" class="btn btn-secondary">Our Services</a>
+            <div class="hero-form-wrapper">
+                <div class="hero-content">
+                    <h1 class="hero-title fade-in">Expert Plumbing Solutions for Your Home & Business</h1>
+                    <p class="hero-subtitle fade-in-delay">24/7 Emergency Service • Licensed & Insured • 100% Satisfaction Guaranteed</p>
+                    <div class="hero-features fade-in-delay-2">
+                        <div class="hero-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Same-Day Service Available</span>
+                        </div>
+                        <div class="hero-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Upfront Pricing, No Hidden Fees</span>
+                        </div>
+                        <div class="hero-feature">
+                            <span class="feature-check">✓</span>
+                            <span>19+ Years of Excellence</span>
+                        </div>
+                    </div>
+                    <div class="hero-cta-buttons">
+                        <a href="tel:+15551234567" class="btn btn-primary btn-large">
+                            📞 Call (555) 123-4567
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-form-container fade-in-delay-2">
+                    <div class="form-header">
+                        <h2>Get Your Free Quote</h2>
+                        <p>Fill out the form and we'll contact you within 2 hours</p>
+                    </div>
+                    <form class="quick-contact-form" id="heroForm">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email Address *" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="service" required>
+                                <option value="">Select Service Needed *</option>
+                                <option value="emergency">Emergency Repair</option>
+                                <option value="drain">Drain Cleaning</option>
+                                <option value="water-heater">Water Heater Service</option>
+                                <option value="leak">Leak Detection</option>
+                                <option value="fixture">Fixture Installation</option>
+                                <option value="other">Other Service</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="3" placeholder="Brief description of your plumbing needs..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Get Free Quote</button>
+                        <div id="heroFormMessage" class="form-message"></div>
+                    </form>
                 </div>
             </div>
         </div>
