@@ -1256,3 +1256,108 @@ body {
         padding: 1rem 2rem;
         font-size: 1rem;
     }
+  /* --- Additional Responsive Fixes --- */
+
+@media (max-width: 768px) {
+    /* 1. Fix Navigation for Mobile */
+    .nav-wrapper {
+        padding: 0.8rem 0;
+    }
+
+    /* Hide standard links on mobile to prepare for a toggle menu */
+    /* Note: You will need a small JS snippet or checkbox hack to toggle this */
+    .nav-links {
+        display: none; /* Temporarily hide or stack them */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 1rem;
+        box-shadow: var(--shadow-md);
+        gap: 1.5rem;
+    }
+
+    /* Use this class to show the menu when toggled */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .btn-call {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    /* 2. Adjust Hero Section */
+    .hero-with-form {
+        padding: 6rem 0 3rem; /* Add top padding so nav doesn't overlap */
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+
+    .hero-form-container {
+        padding: 1.5rem;
+    }
+
+    /* 3. Adjust Grids for Single Column */
+    .feature-grid, 
+    .services-grid, 
+    .testimonial-grid, 
+    .footer-grid,
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* 4. Service Details Adjustments */
+    .service-detail-image {
+        height: 250px;
+        order: -1; /* Move image above text on mobile */
+    }
+
+    .service-detail-content {
+        padding: 1.5rem 0;
+    }
+
+    /* 5. About & Contact Adjustments */
+    .about-text h2, 
+    .contact-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem;
+    }
+}
