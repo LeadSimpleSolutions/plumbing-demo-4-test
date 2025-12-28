@@ -94,19 +94,38 @@ if (heroForm) {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
-        // Simulate form submission (replace with actual backend integration)
-        setTimeout(() => {
-            formMessage.className = 'form-message success';
-            formMessage.textContent = '✓ Success! We\'ll contact you within 2 hours.';
-            heroForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
-        }, 1000);
+       // Collect form data
+const formData = new FormData(heroForm);
+const data = {};
+formData.forEach((value, key) => {
+    data[key] = value;
+});
+
+// Send to n8n webhook
+fetch('https://YOUR_N8N_WEBHOOK_URL', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
+.then(() => {
+    formMessage.className = 'form-message success';
+    formMessage.textContent = '✓ Success! We\'ll contact you within 2 hours.';
+    heroForm.reset();
+})
+.catch(() => {
+    formMessage.className = 'form-message error';
+    formMessage.textContent = '✗ Something went wrong. Please try again.';
+})
+.finally(() => {
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+    setTimeout(() => {
+        formMessage.style.display = 'none';
+    }, 5000);
+});
+
         
         // For actual implementation, use fetch or XMLHttpRequest:
         /*
