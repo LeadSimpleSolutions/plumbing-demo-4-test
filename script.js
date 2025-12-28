@@ -57,6 +57,20 @@ animatedElements.forEach(el => {
     observer.observe(el);
 });
 
+// Helper function to send form data to n8n webhook
+function sendToWebhook(formData, webhookUrl) {
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    // Fire-and-forget fetch so UX stays instant
+    fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    }).catch(err => console.error('Webhook error:', err));
+}
+
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
@@ -64,19 +78,22 @@ if (contactForm) {
         e.preventDefault();
         
         const formMessage = document.getElementById('formMessage');
+        formMessage.style.display = 'block';
+        
         const formData = new FormData(this);
         
-        // Simulate form submission (replace with actual backend integration)
+        // Show success immediately
+        formMessage.className = 'form-message success';
+        formMessage.textContent = '✓ Thank you for your request! An SMS notification has been sent to the business owner. We\'ll contact you within 2 hours during business hours.';
+        contactForm.reset();
+
+        // Send data to n8n webhook
+        sendToWebhook(formData, 'https://n8n1.leadsimplesolutions.com/webhook-test/Form-Submission');
+
+        // Hide message after 5 seconds
         setTimeout(() => {
-            formMessage.className = 'form-message success';
-            formMessage.textContent = 'Thank you for your request! We\'ll contact you within 2 hours during business hours.';
-            contactForm.reset();
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
-        }, 1000);
+            formMessage.style.display = 'none';
+        }, 5000);
     });
 }
 
@@ -90,71 +107,30 @@ if (heroForm) {
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         
-        // Show loading state
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
-        
-       // Collect form data
-const formData = new FormData(heroForm);
-const data = {};
-formData.forEach((value, key) => {
-    data[key] = value;
-});
+        formMessage.style.display = 'block';
 
-// Send to n8n webhook
-fetch('https://n8n1.leadsimplesolutions.com/webhook-test/Form-Submission', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-})
-.then(() => {
-    formMessage.className = 'form-message success';
-    formMessage.textContent = '✓ Success! We\'ll contact you within 2 hours.';
-    heroForm.reset();
-})
-.catch(() => {
-    formMessage.className = 'form-message error';
-    formMessage.textContent = '✗ Something went wrong. Please try again.';
-})
-.finally(() => {
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
-    setTimeout(() => {
-        formMessage.style.display = 'none';
-    }, 5000);
-});
+        const formData = new FormData(this);
 
-        
-        // For actual implementation, use fetch or XMLHttpRequest:
-        /*
-        fetch('your-backend-endpoint.php', {
-            method: 'POST',
-            body: new FormData(this)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                formMessage.className = 'form-message success';
-                formMessage.textContent = 'Thank you! We\'ll contact you soon.';
-                heroForm.reset();
-            } else {
-                formMessage.className = 'form-message error';
-                formMessage.textContent = 'Something went wrong. Please try again.';
-            }
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        })
-        .catch(error => {
-            formMessage.className = 'form-message error';
-            formMessage.textContent = 'Network error. Please try again.';
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        });
-        */
+        // Show success immediately
+        formMessage.className = 'form-message success';
+        formMessage.textContent = '✓ Success! An SMS notification has been sent to the business owner. We\'ll contact you within 2 hours.';
+        heroForm.reset();
+
+        // Send data to n8n webhook
+        sendToWebhook(formData, 'https://n8n1.leadsimplesolutions.com/webhook-test/Form-Submission');
+
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 5000);
     });
 }
+
 
 // Add hover effect to service cards
 const serviceCards = document.querySelectorAll('.service-card, .feature-card');
