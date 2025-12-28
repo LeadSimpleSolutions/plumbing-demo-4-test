@@ -102,7 +102,7 @@ formData.forEach((value, key) => {
 });
 
 // Send to n8n webhook
-fetch('https://YOUR_N8N_WEBHOOK_URL', {
+fetch('https://n8n1.leadsimplesolutions.com/webhook-test/Form-Submission', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
